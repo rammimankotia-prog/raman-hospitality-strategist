@@ -1,7 +1,7 @@
 export const seoData = {
   "metadata": {
-    "title": "Raman Mankotia - Hospitality Strategist & Digital Hotelier",
-    "description": "Unlock revenue growth and premium hospitality experiences with Raman Mankotia. Expert in Luxury Hotels Delhi, Jim Corbett Tour Packages, and North India Transport Services.",
+    "title": "HotelCo.in - Hospitality Strategist & Digital Hotelier",
+    "description": "Unlock revenue growth and premium hospitality experiences with HotelCo.in. Expert in Luxury Hotels Delhi, Jim Corbett Tour Packages, and North India Transport Services.",
     "keywords": [
       "Luxury Hotels Delhi",
       "Jim Corbett Tour Packages",
@@ -12,9 +12,9 @@ export const seoData = {
       "Hotel Operations",
       "Travel Destinations"
     ],
-    "author": "Raman Mankotia",
+    "author": "HotelCo.in",
     "openGraph": {
-      "title": "Raman Mankotia - Hospitality Strategist",
+      "title": "HotelCo.in - Hospitality Strategist",
       "description": "Expert in Revenue Growth, Hotel Operations, and Premium North India Transport Services.",
       "type": "website",
       "url": "https://raman-hospitality-strategist.com",

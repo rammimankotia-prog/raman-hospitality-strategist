@@ -41,7 +41,7 @@ export default function App() {
               <Hotel className="w-6 h-6" />
             </div>
             <div className="flex flex-col">
-              <span className="font-sans font-black tracking-tight text-xl text-sky-900 leading-none">Raman Mankotia</span>
+              <span className="font-sans font-black tracking-tight text-xl text-sky-900 leading-none">HotelCo.in</span>
               <span className="font-body text-sky-600 text-xs font-medium tracking-wide">Hospitality Strategist</span>
             </div>
           </div>
@@ -240,7 +240,7 @@ export default function App() {
                 <div className="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center text-white">
                   <Hotel className="w-4 h-4" />
                 </div>
-                <span className="font-black text-lg text-slate-900">Raman Mankotia</span>
+                <span className="font-black text-lg text-slate-900">HotelCo.in</span>
               </div>
               <p className="text-slate-500 font-body max-w-sm mb-6 leading-relaxed">
                 Expert in Revenue Growth, Hotel Operations, and Premium North India Transport Services.
@@ -265,7 +265,7 @@ export default function App() {
             </div>
           </div>
           <div className="text-center text-slate-400 text-sm font-medium pt-8 border-t border-sky-50">
-            © 2026 Raman Mankotia - Hospitality Strategist. All rights reserved.
+            © 2026 HotelCo.in - Hospitality Strategist. All rights reserved.
           </div>
         </div>
       </footer>

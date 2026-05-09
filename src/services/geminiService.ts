@@ -22,7 +22,7 @@ export interface GenerationParams {
 export async function generateHotelContent(params: GenerationParams) {
   const { type, hotelName, details, audience, occupancy } = params;
   let prompt = "";
-  const systemInstruction = `You are the "Chief Marketing Officer (CMO) & Reputation Strategist" for Raman Mankotia’s Hotel Marketing Firm.
+  const systemInstruction = `You are the "Chief Marketing Officer (CMO) & Reputation Strategist" for HotelCo.in's Hotel Marketing Firm.
   
   Your mission is to generate high-conversion hospitality content that maximizes Revenue Per Available Room (RevPAR). 
   

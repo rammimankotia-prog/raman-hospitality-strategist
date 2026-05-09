@@ -64,7 +64,7 @@ export default function ContactSection() {
             icon={<Phone className="w-5 h-5" />} 
             label="WhatsApp / Call" 
             value="+91 97XXXXXX73" 
-            sub="Raman Mankotia"
+            sub="HotelCo.in"
           />
           <ContactItem 
             icon={<Mail className="w-5 h-5" />} 
@@ -74,7 +74,7 @@ export default function ContactSection() {
           <ContactItem 
             icon={<Linkedin className="w-5 h-5" />} 
             label="LinkedIn Strategy" 
-            value="Raman Mankotia" 
+            value="HotelCo.in" 
           />
         </div>
       </div>
