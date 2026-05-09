@@ -1,398 +1,277 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Hotel, 
-  TrendingUp, 
-  Globe, 
-  Star, 
-  Users, 
-  ArrowRight, 
   MapPin, 
-  Mail, 
-  Linkedin,
-  Search,
-  CheckCircle2,
-  ChevronRight,
-  Sparkles,
-  X,
-  Heart,
-  Layout,
-  Settings,
-  BarChart3
+  Briefcase, 
+  Car, 
+  TrendingUp, 
+  ArrowRight,
+  Star,
+  Users,
+  Compass,
+  Phone,
+  Mail,
+  ChevronRight
 } from "lucide-react";
-import React, { useState } from "react";
-import AIContentGenerator from "./components/AIContentGenerator";
-import AboutSection from "./components/AboutSection";
-import ContactSection from "./components/ContactSection";
+import { FloatingBookingWidget } from "./components/FloatingBookingWidget";
+import { seoData } from "./data/seoData";
 
 export default function App() {
-  const [showAITool, setShowAITool] = useState(false);
-  const [activeTab, setActiveTab] = useState<'home' | 'about' | 'contact'>('home');
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) - 0.5,
+        y: (e.clientY / window.innerHeight) - 0.5,
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-bg p-6 selection:bg-accent selection:text-bg">
-      <div className="max-w-[1400px] mx-auto flex flex-col gap-4">
-        
-        {/* Navigation / Header */}
-        <nav className="flex justify-between items-center bg-card-bg border border-border rounded-2xl px-6 py-3">
-          <div className="flex items-center gap-2 cursor-pointer group" onClick={() => setActiveTab('home')}>
-            <div className="relative">
-              <Hotel className="w-6 h-6 text-accent" />
-              <div className="absolute -bottom-1 -right-1 bg-bg p-0.5 rounded-full">
-                <TrendingUp className="w-3 h-3 text-accent" />
-              </div>
+    <div className="min-h-screen bg-bg text-text-main font-sans selection:bg-accent selection:text-white pb-20">
+      {/* Sticky Blurred Header */}
+      <header className="fixed top-0 left-0 right-0 z-40 bg-white/70 backdrop-blur-md border-b border-sky-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-sky-400 to-sky-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-sky-500/30">
+              <Hotel className="w-6 h-6" />
             </div>
             <div className="flex flex-col">
-              <span className="font-sans font-black tracking-tighter text-xs uppercase leading-none">Hotel</span>
-              <span className="font-serif italic text-accent text-sm leading-none">co</span>
+              <span className="font-sans font-black tracking-tight text-xl text-sky-900 leading-none">Raman Mankotia</span>
+              <span className="font-body text-sky-600 text-xs font-medium tracking-wide">Hospitality Strategist</span>
             </div>
           </div>
-          <div className="flex gap-6 items-center text-[10px] uppercase tracking-widest font-sans font-medium">
-            <button 
-              onClick={() => setActiveTab('home')} 
-              className={`transition-colors ${activeTab === 'home' ? 'text-accent font-bold underline underline-offset-4 decoration-2' : 'text-text-dim hover:text-text-main'}`}
-            >
-              Home
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-sky-800">
+            <a href="#strategic-management" className="hover:text-sky-500 transition-colors">Strategic Management</a>
+            <a href="#destinations" className="hover:text-sky-500 transition-colors">Destinations</a>
+            <button className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2.5 rounded-full font-bold shadow-md shadow-sky-200 transition-all hover:scale-105 active:scale-95">
+              Book Now
             </button>
-            <button 
-              onClick={() => setActiveTab('about')} 
-              className={`transition-colors ${activeTab === 'about' ? 'text-accent font-bold underline underline-offset-4 decoration-2' : 'text-text-dim hover:text-text-main'}`}
+          </nav>
+        </div>
+      </header>
+
+      <main className="max-w-7xl mx-auto px-6 pt-32">
+        {/* Floating Hero Section */}
+        <section className="relative min-h-[80vh] flex flex-col justify-center items-center text-center py-20">
+          {/* Background Decorative Elements */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
+            <motion.div 
+              animate={{ 
+                x: mousePosition.x * -50,
+                y: mousePosition.y * -50,
+              }}
+              transition={{ type: "spring", stiffness: 50, damping: 20 }}
+              className="absolute top-20 left-10 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl"
+            />
+            <motion.div 
+              animate={{ 
+                x: mousePosition.x * 60,
+                y: mousePosition.y * 60,
+              }}
+              transition={{ type: "spring", stiffness: 40, damping: 20 }}
+              className="absolute bottom-20 right-10 w-80 h-80 bg-blue-200/30 rounded-full blur-3xl"
+            />
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="z-10 flex flex-col items-center"
+          >
+            <motion.div
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
-              About
-            </button>
-            <button 
-              onClick={() => setActiveTab('contact')} 
-              className={`bg-accent text-bg px-4 py-1.5 rounded-full font-bold text-[9px] hover:scale-105 transition-transform active:scale-95 ${activeTab === 'contact' ? 'scale-105 ring-2 ring-accent/20' : ''}`}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-sky-50 border border-sky-100 rounded-full text-sky-700 font-semibold text-sm mb-8 shadow-sm">
+                <TrendingUp className="w-4 h-4" />
+                {seoData.content.hero.subtitle}
+              </div>
+            </motion.div>
+            
+            <motion.h1 
+              animate={{ 
+                x: mousePosition.x * 20,
+                y: mousePosition.y * 20,
+              }}
+              className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 tracking-tight leading-[1.1] mb-6 max-w-5xl"
             >
-              Contact
+              {seoData.content.hero.title}
+            </motion.h1>
+            
+            <motion.p 
+              animate={{ 
+                x: mousePosition.x * 10,
+                y: mousePosition.y * 10,
+              }}
+              className="text-lg md:text-xl text-slate-600 max-w-2xl font-body leading-relaxed mb-10"
+            >
+              {seoData.content.about.text}
+            </motion.p>
+            
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl flex items-center gap-3 transition-colors"
+            >
+              {seoData.content.hero.cta}
+              <ArrowRight className="w-5 h-5" />
+            </motion.button>
+          </motion.div>
+        </section>
+
+        {/* Strategic Management */}
+        <section id="strategic-management" className="py-20">
+          <div className="text-center mb-16">
+            <h2 className="text-sm font-bold tracking-widest text-sky-500 uppercase mb-3">Our Core Expertise</h2>
+            <h3 className="text-4xl md:text-5xl font-black text-slate-900">Strategic Management</h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div 
+              whileHover={{ y: -10 }}
+              className="bg-white p-10 rounded-3xl border border-sky-50 shadow-xl shadow-sky-900/5 group"
+            >
+              <div className="w-16 h-16 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 mb-8 group-hover:scale-110 transition-transform">
+                <Briefcase className="w-8 h-8" />
+              </div>
+              <h4 className="text-2xl font-bold text-slate-900 mb-4">Hotel Operations Excellence</h4>
+              <p className="text-slate-600 leading-relaxed font-body mb-6">
+                Maximizing property performance through advanced revenue strategies, staff training, and deep OTA optimizations. Transform your underperforming hotel into a local market leader.
+              </p>
+              <ul className="space-y-3">
+                {['Revenue Maximization', 'Digital Branding & SEO', 'OTA Ecosystem Mastery'].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm font-medium text-slate-700">
+                    <div className="w-5 h-5 rounded-full bg-sky-100 flex items-center justify-center text-sky-500">
+                      <Star className="w-3 h-3" />
+                    </div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div 
+              whileHover={{ y: -10 }}
+              className="bg-gradient-to-br from-sky-500 to-sky-700 p-10 rounded-3xl shadow-xl shadow-sky-900/10 text-white group"
+            >
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform">
+                <Car className="w-8 h-8" />
+              </div>
+              <h4 className="text-2xl font-bold mb-4">Private Tour Transport Services</h4>
+              <p className="text-sky-100 leading-relaxed font-body mb-6">
+                Premium North India transportation tailored for luxury and comfort. We manage highly reliable fleets delivering top-tier experiences for demanding travelers.
+              </p>
+              <ul className="space-y-3">
+                {['Jim Corbett Tour Packages', 'Luxury Sedan & SUV Fleets', 'Bespoke Travel Itineraries'].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm font-medium text-sky-50">
+                    <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-white">
+                      <Users className="w-3 h-3" />
+                    </div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Travel Destinations */}
+        <section id="destinations" className="py-20">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div>
+              <h2 className="text-sm font-bold tracking-widest text-sky-500 uppercase mb-3">Explore with us</h2>
+              <h3 className="text-4xl md:text-5xl font-black text-slate-900">Curated Travel Destinations</h3>
+            </div>
+            <button className="text-sky-600 font-bold hover:text-sky-800 flex items-center gap-2 transition-colors">
+              View All Destinations <ArrowRight className="w-4 h-4" />
             </button>
           </div>
-        </nav>
 
-        {/* Content Area */}
-        <main className="flex-1">
-          <AnimatePresence mode="wait">
-            {activeTab === 'home' && (
-              <motion.div 
-                key="home"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-min md:auto-rows-[100px]"
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { title: "Kashmir", subtitle: "Paradise on Earth", color: "from-blue-400 to-indigo-600" },
+              { title: "Ladakh", subtitle: "The High Passes", color: "from-amber-500 to-orange-600" },
+              { title: "Rajasthan", subtitle: "Royal Heritage", color: "from-rose-400 to-red-600" }
+            ].map((dest, index) => (
+              <motion.div
+                key={dest.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                whileHover={{ y: -15 }}
+                className="relative h-96 rounded-3xl overflow-hidden group cursor-pointer"
               >
-                {/* Hero Card */}
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="md:col-span-8 md:row-span-4 bento-card bg-gradient-to-br from-card-bg to-bg border-l-4 border-l-accent"
-                >
-                  {/* ... contents stayed same ... */}
-                <div>
-                  <div className="inline-block px-3 py-1 bg-accent/10 text-accent rounded-full text-[10px] font-bold tracking-widest mb-4">
-                    Hospitality Strategist & Revenue Expert
-                  </div>
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium leading-[1.1] mb-4">
-                    Raman Mankotia
-                  </h1>
-                  <p className="text-text-dim text-lg max-w-2xl font-body leading-relaxed">
-                    Multi-profile Hospitality Veteran & Digital Growth Architect. Expert in OTA ecosystem mastery, strategic tech adoption, and SEO/SMO—now pioneering the AI revolution in modern hospitality revenue with <strong>Hotelco</strong>.
-                  </p>
-                </div>
-                <div className="flex gap-8 mt-6">
-                  <div className="text-[11px]">
-                    <strong className="text-accent block uppercase tracking-wide">Founder</strong>
-                    <span className="text-text-dim">Hotelco</span>
-                  </div>
-                  <div className="text-[11px]">
-                    <strong className="text-accent block uppercase tracking-wide">Ex-GM</strong>
-                    <span className="text-text-dim">Hotel Grand Godwin</span>
-                  </div>
+                {/* Fallback gradient if we don't have images */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${dest.color} opacity-90 transition-opacity group-hover:opacity-100`}></div>
+                
+                <div className="absolute inset-0 p-8 flex flex-col justify-end text-white bg-gradient-to-t from-slate-900/80 to-transparent">
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: index * 0.2 + 0.2 }}
+                  >
+                    <div className="flex items-center gap-2 text-white/80 font-medium text-sm mb-2 uppercase tracking-wider">
+                      <Compass className="w-4 h-4" /> {dest.subtitle}
+                    </div>
+                    <h4 className="text-3xl font-black mb-4">{dest.title}</h4>
+                    <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-2">
+                      <ChevronRight className="w-5 h-5" />
+                    </div>
+                  </motion.div>
                 </div>
               </motion.div>
-
-              {/* Vision Card */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1 }}
-                className="md:col-span-4 md:row-span-4 bento-card bg-accent text-bg"
-              >
-                <div>
-                  <div className="text-[11px] uppercase tracking-widest font-bold opacity-60 mb-2">Core Philosophy</div>
-                  <h2 className="text-2xl md:text-3xl font-serif font-bold italic leading-tight mb-4">
-                    "The Digital Hotelier Vision"
-                  </h2>
-                  <p className="text-sm font-medium leading-relaxed opacity-90">
-                    "After years of establishing excellence in the hospitality industry, I am launching a platform dedicated to maximizing the revenue potential of individual hotel properties."
-                  </p>
-                </div>
-                <div className="mt-4 pt-4 border-t border-bg/10 flex items-center justify-between cursor-pointer group" onClick={() => setActiveTab('about')}>
-                  <span className="text-[10px] uppercase font-bold tracking-widest group-hover:text-bg/80 transition-colors">Read Story</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </motion.div>
-
-              {/* Expertise Cards */}
-              <ExpertiseBento 
-                delay={0.2}
-                icon={<Globe className="w-5 h-5" />}
-                title="Omni-Channel Sales"
-                subtitle="OTA & Direct Growth"
-                desc="Optimization of Booking.com, MMT, and Agoda combined with aggressive direct booking setups."
-              />
-              
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.25 }}
-                onClick={() => setShowAITool(true)}
-                className="md:col-span-4 md:row-span-3 bento-card bg-white/5 border-dashed border-accent/40 cursor-pointer group hover:bg-white/10"
-              >
-                <div className="flex justify-between items-start">
-                  <div className="w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center text-accent">
-                    <Sparkles className="w-5 h-5" />
-                  </div>
-                  <div className="px-2 py-1 bg-accent/10 rounded text-[8px] font-bold text-accent uppercase tracking-widest">Live Demo</div>
-                </div>
-                <div>
-                  <div className="card-title text-text-dim">AI Strategy Tool</div>
-                  <h3 className="text-lg font-bold mb-2">Dynamic Content Engine</h3>
-                  <p className="text-[11px] text-text-dim/80 leading-relaxed italic">
-                    AI-driven generation of room descriptions & blog posts based on occupancy & audience.
-                  </p>
-                </div>
-              </motion.div>
-
-              <ExpertiseBento 
-                delay={0.3}
-                icon={<Search className="w-5 h-5" />}
-                title="Digital Branding"
-                subtitle="Identity & SEO"
-                desc="Website maintenance, Database synchronization, and GEO-fencing strategies to dominate local search."
-              />
-              <ExpertiseBento 
-                delay={0.4}
-                icon={<Star className="w-5 h-5" />}
-                title="Reputation Management"
-                subtitle="AI-Driven ORM"
-                desc="Monitoring guest reviews and improving ratings through strategic digital feedback loops."
-              />
-
-              <ExpertiseBento 
-                delay={0.5}
-                icon={<Heart className="w-5 h-5" />}
-                title="CRM & Loyalty"
-                subtitle="Enterprise Engagement"
-                desc="Utilizing deep guest data to create personalized email marketing and automated guest journeys, mirroring global loyalty standards."
-              />
-              <ExpertiseBento 
-                delay={0.55}
-                icon={<Layout className="w-5 h-5" />}
-                title="Full-Funnel Stack"
-                subtitle="Comprehensive Ecosystem"
-                desc="A total solution including high-end website design, professional visual staging, and proprietary-grade booking engine architecture."
-              />
-              <ExpertiseBento 
-                delay={0.6}
-                icon={<Settings className="w-5 h-5" />}
-                title="Technical Discovery"
-                subtitle="Schema & SEO 'Plumbing'"
-                desc="Specialists in technical SEO and Schemas. We handle the internet 'plumbing' ensuring search engines and voice assistants find you with precision."
-              />
-
-              <ExpertiseBento 
-                delay={0.65}
-                icon={<Sparkles className="w-5 h-5" />}
-                title="Generative Intelligence"
-                subtitle="GEO & AI Automation"
-                desc="Ensuring your hotel dominates in Generative Search (Gemini, ChatGPT). We implement AI reservation desks and fully automated WhatsApp marketing ecosystems."
-              />
-              <ExpertiseBento 
-                delay={0.7}
-                icon={<TrendingUp className="w-5 h-5" />}
-                title="Profit Protection"
-                subtitle="Direct Strategy"
-                desc="Aggressive reduction of OTA commissions through high-converting proprietary websites and precision-targeted Meta/Google performance ads."
-              />
-              <ExpertiseBento 
-                delay={0.75}
-                icon={<BarChart3 className="w-5 h-5" />}
-                title="Growth Velocity"
-                subtitle="Data-Driven PR"
-                desc="Utilizing advanced brand scaling algorithms and strategic PR to position your property as the undisputed dominant leader in your local market."
-              />
-
-              {/* Specialization Card */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.45 }}
-                className="md:col-span-8 md:row-span-3 bento-card bg-accent/5 border-accent/20 flex flex-col md:flex-row gap-8 items-center"
-              >
-                <div className="w-20 h-20 shrink-0 rounded-2xl bg-accent/10 flex items-center justify-center text-accent">
-                  <Hotel className="w-10 h-10" />
-                </div>
-                <div>
-                  <div className="text-[10px] font-black uppercase tracking-widest text-accent mb-2">The Strategic Edge</div>
-                  <h3 className="text-2xl md:text-3xl font-serif font-bold mb-3 italic">"Built by hoteliers, for hoteliers."</h3>
-                  <p className="text-sm text-text-dim leading-relaxed max-w-xl">
-                    We specialize in <span className="text-white font-bold">hotel openings</span> and <span className="text-white font-bold">brand conversions</span>. Making us the definitive choice if you are launching a new property and need operational grit paired with digital speed.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Professional Journey List */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5 }}
-                className="md:col-span-5 md:row-span-5 bento-card"
-              >
-                <div>
-                  <div className="card-title">Professional Track Record</div>
-                  <div className="space-y-4 mt-4">
-                    <JourneyListItem title="General Manager" org="Hotel Grand Godwin & Godwin Deluxe" />
-                    <JourneyListItem title="Founder" org="Hotelco (Voyage of India)" />
-                    <JourneyListItem title="Authorized Agent" org="IRCTC Distribution & B2B Portals" />
-                    <JourneyListItem title="Tech Specialist" org="GitHub & GoDaddy UI/UX Optimization" />
-                  </div>
-                </div>
-                <div className="mt-6 flex flex-wrap gap-4">
-                  <div className="flex items-center gap-1 text-[9px] uppercase tracking-widest bg-white/5 px-2 py-1 rounded">
-                    <MapPin className="w-3 h-3 text-accent" /> Pan India
-                  </div>
-                  <div className="flex items-center gap-1 text-[9px] uppercase tracking-widest bg-white/5 px-2 py-1 rounded">
-                    <Users className="w-3 h-3 text-accent" /> 500+ Connections
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Stats Card */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.6 }}
-                className="md:col-span-4 md:row-span-5 bento-card items-center justify-center text-center py-12"
-              >
-                <div className="card-title">Target Impact</div>
-                <div className="my-auto">
-                  <span className="text-6xl md:text-8xl font-serif font-extrabold text-accent leading-none">90%<span className="text-3xl">+</span></span>
-                  <div className="text-[12px] uppercase tracking-[0.2em] text-text-dim mt-4">Average Occupancy Rate Goal</div>
-                </div>
-                <p className="text-[10px] text-text-dim/60 mt-4 font-medium max-w-[200px] mx-auto italic">
-                  "We transform stagnated sales into consistent high-volume revenue streams."
-                </p>
-              </motion.div>
-
-              {/* CTA Card */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.7 }}
-                className="md:col-span-3 md:row-span-5 bento-card bg-blue-cta text-white border-0 text-center items-center justify-center"
-              >
-                <div className="text-5xl mb-4 self-center">🤝</div>
-                <h3 className="text-xl font-bold mb-2">Start Your Transformation</h3>
-                <p className="text-xs opacity-80 mb-8 leading-relaxed px-4">
-                  Get a Complimentary AI-Generated Reputation Audit for your property today.
-                </p>
-                <button 
-                  onClick={() => setActiveTab('contact')}
-                  className="bg-white text-blue-cta w-full py-3 rounded-xl font-black text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform active:scale-[0.98] shadow-lg"
-                >
-                  Connect Now
-                </button>
-              </motion.div>
-            </motion.div>
-          )}
-
-          {activeTab === 'about' && (
-            <AboutSection onContactClick={() => setActiveTab('contact')} />
-          )}
-
-          {activeTab === 'contact' && (
-            <ContactSection />
-          )}
-        </AnimatePresence>
+            ))}
+          </div>
+        </section>
       </main>
 
-      {/* Footer Rail */}
-      <footer className="flex flex-col md:flex-row justify-between items-center bg-card-bg border border-border rounded-2xl px-8 py-4 mt-2">
-          <div className="flex items-center gap-6 text-[10px] uppercase tracking-widest opacity-60">
-            <span>© 2026 Raman Mankotia</span>
-            <span className="hidden sm:inline">|</span>
-            <span className="italic">Hotelco</span>
+      <footer className="bg-white border-t border-sky-100 mt-20 pt-16 pb-8">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            <div className="md:col-span-2">
+               <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center text-white">
+                  <Hotel className="w-4 h-4" />
+                </div>
+                <span className="font-black text-lg text-slate-900">Raman Mankotia</span>
+              </div>
+              <p className="text-slate-500 font-body max-w-sm mb-6 leading-relaxed">
+                Expert in Revenue Growth, Hotel Operations, and Premium North India Transport Services.
+              </p>
+            </div>
+            <div>
+              <h5 className="font-bold text-slate-900 mb-4">Quick Links</h5>
+              <ul className="space-y-3 text-slate-500 text-sm font-medium">
+                <li><a href="#" className="hover:text-sky-500 transition-colors">Home</a></li>
+                <li><a href="#strategic-management" className="hover:text-sky-500 transition-colors">Services</a></li>
+                <li><a href="#destinations" className="hover:text-sky-500 transition-colors">Destinations</a></li>
+                <li><a href="#" className="hover:text-sky-500 transition-colors">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-bold text-slate-900 mb-4">Contact Info</h5>
+              <ul className="space-y-3 text-slate-500 text-sm font-medium">
+                <li className="flex items-center gap-2"><MapPin className="w-4 h-4 text-sky-400" /> New Delhi, India</li>
+                <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-sky-400" /> +91 (XXX) XXX-XXXX</li>
+                <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-sky-400" /> info@raman-hospitality.com</li>
+              </ul>
+            </div>
           </div>
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <a href="#" className="hover:text-accent transition-colors"><Linkedin className="w-4 h-4" /></a>
-            <a href="#" className="hover:text-accent transition-colors"><Mail className="w-4 h-4" /></a>
-            <a href="#" className="hover:text-accent transition-colors font-bold text-[10px] tracking-tighter">B2B PORTAL</a>
+          <div className="text-center text-slate-400 text-sm font-medium pt-8 border-t border-sky-50">
+            © 2026 Raman Mankotia - Hospitality Strategist. All rights reserved.
           </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
 
-      {/* AI Tool Modal */}
-      <AnimatePresence>
-        {showAITool && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-bg/90 backdrop-blur-xl"
-          >
-            <motion.div 
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
-              className="w-full max-w-5xl h-full max-h-[850px] relative"
-            >
-              <button 
-                onClick={() => setShowAITool(false)}
-                className="absolute -top-4 -right-4 md:top-4 md:right-4 z-10 p-3 bg-accent text-bg rounded-full shadow-2xl hover:scale-110 transition-transform"
-              >
-                <X className="w-5 h-5" />
-              </button>
-              <AIContentGenerator onClose={() => setShowAITool(false)} />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Floating Widget Component */}
+      <FloatingBookingWidget />
     </div>
   );
 }
-
-function ExpertiseBento({ icon, title, subtitle, desc, delay }: { icon: React.ReactNode, title: string, subtitle: string, desc: string, delay: number }) {
-  return (
-    <motion.div 
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay }}
-      className="md:col-span-4 md:row-span-3 bento-card group hover:border-accent/40"
-    >
-      <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-        {icon}
-      </div>
-      <div>
-        <div className="card-title">{title}</div>
-        <h3 className="text-lg font-bold mb-2 leading-tight">{subtitle}</h3>
-        <p className="text-[12px] text-text-dim leading-relaxed font-body">
-          {desc}
-        </p>
-      </div>
-    </motion.div>
-  );
-}
-
-function JourneyListItem({ title, org }: { title: string, org: string }) {
-  return (
-    <div className="border-b border-border/50 pb-3 last:border-0 last:pb-0">
-      <span className="font-bold text-sm block">{title}</span>
-      <small className="text-text-dim text-[11px] italic">{org}</small>
-    </div>
-  );
-}
-
