@@ -229,165 +229,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* About Us Section */}
-        <section id="about-us" className="py-20">
-          <div className="bg-slate-950 rounded-[3rem] p-6 md:p-12 text-white shadow-2xl relative overflow-hidden">
-            {/* Background Decorators */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[80px] pointer-events-none" />
-            
-            <div className="text-center mb-16 relative z-10">
-              <h2 className="text-sm font-bold tracking-widest text-sky-500 uppercase mb-3">About Us</h2>
-              <h3 className="text-4xl md:text-5xl font-black text-white mb-6">Redefining Hospitality Strategy</h3>
-            </div>
-
-            <div className="relative z-10">
-              {/* Profile & Philosophy Row */}
-              <div className="grid lg:grid-cols-3 gap-6 mb-6">
-                <div className="lg:col-span-2 bg-slate-900/80 backdrop-blur-sm p-10 rounded-3xl border border-slate-800 flex flex-col justify-between">
-                  <div>
-                    <span className="inline-block px-4 py-1.5 bg-slate-800 text-amber-500 text-xs font-bold rounded-full mb-8">Hospitality Strategist & Revenue Expert</span>
-                    <h3 className="text-5xl font-serif mb-6 text-white">Raman Mankotia</h3>
-                    <p className="text-slate-400 text-lg leading-relaxed mb-10 max-w-2xl">
-                      Multi-profile Hospitality Veteran & Digital Growth Architect. Expert in OTA ecosystem mastery, strategic tech adoption, and SEO/SMO—now pioneering the AI revolution in modern hospitality revenue with <strong>Hotelco</strong>.
-                    </p>
-                  </div>
-                  <div className="flex gap-12">
-                    <div>
-                      <div className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-2">Founder</div>
-                      <div className="text-slate-300 text-sm">Hotelco</div>
-                    </div>
-                    <div>
-                      <div className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-2">Ex-GM</div>
-                      <div className="text-slate-300 text-sm">Hotel Grand Godwin</div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-amber-500 p-10 rounded-3xl text-slate-900 flex flex-col justify-between relative overflow-hidden">
-                  <div className="absolute -right-10 -bottom-10 opacity-10">
-                    <Building className="w-64 h-64" />
-                  </div>
-                  <div className="relative z-10">
-                    <div className="text-xs font-bold uppercase tracking-widest mb-8 text-amber-900">Core Philosophy</div>
-                    <h3 className="text-4xl font-serif italic mb-8">"The Digital Hotelier Vision"</h3>
-                    <p className="text-amber-950 font-medium leading-relaxed text-lg">
-                      "After years of establishing excellence in the hospitality industry, I am launching a platform dedicated to maximizing the revenue potential of individual hotel properties."
-                    </p>
-                  </div>
-                  <div className="mt-12 flex justify-between items-center font-bold text-sm tracking-widest uppercase cursor-pointer hover:translate-x-2 transition-transform relative z-10">
-                    Read Story <ArrowRight className="w-5 h-5" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Roles, Target Impact, CTA Row */}
-              <div className="grid lg:grid-cols-3 gap-6 mb-16">
-                {/* Roles */}
-                <div className="bg-slate-900/80 backdrop-blur-sm p-10 rounded-3xl border border-slate-800 flex flex-col justify-between">
-                  <div className="space-y-6">
-                    <div>
-                      <div className="font-bold text-white text-lg">General Manager</div>
-                      <div className="text-slate-400 text-sm italic">Hotel Grand Godwin & Godwin Deluxe</div>
-                    </div>
-                    <div className="border-t border-slate-800/50 pt-6">
-                      <div className="font-bold text-white text-lg">Founder</div>
-                      <div className="text-slate-400 text-sm italic">Hotelco (Voyage of India)</div>
-                    </div>
-                    <div className="border-t border-slate-800/50 pt-6">
-                      <div className="font-bold text-white text-lg">Authorized Agent</div>
-                      <div className="text-slate-400 text-sm italic">IRCTC Distribution & B2B Portals</div>
-                    </div>
-                    <div className="border-t border-slate-800/50 pt-6">
-                      <div className="font-bold text-white text-lg">Tech Specialist</div>
-                      <div className="text-slate-400 text-sm italic">GitHub & GoDaddy UI/UX Optimization</div>
-                    </div>
-                  </div>
-                  <div className="mt-8 flex flex-wrap gap-4">
-                    <div className="flex items-center gap-2 bg-slate-800/50 px-4 py-2 rounded-lg text-xs font-bold text-slate-300">
-                      <MapPin className="w-4 h-4 text-amber-500" /> PAN INDIA
-                    </div>
-                    <div className="flex items-center gap-2 bg-slate-800/50 px-4 py-2 rounded-lg text-xs font-bold text-slate-300">
-                      <Users className="w-4 h-4 text-amber-500" /> 500+ CONNECTIONS
-                    </div>
-                  </div>
-                </div>
-
-                {/* Target Impact */}
-                <div className="bg-slate-900/80 backdrop-blur-sm p-10 rounded-3xl border border-slate-800 flex flex-col items-center justify-center text-center">
-                  <div className="text-amber-500 text-xs font-bold tracking-widest uppercase mb-10">Target Impact</div>
-                  <div className="mb-10">
-                    <div className="text-8xl font-serif text-amber-500 mb-6 drop-shadow-lg">90%<span className="text-5xl align-top">+</span></div>
-                    <div className="text-slate-300 text-sm tracking-widest font-bold uppercase leading-relaxed max-w-[200px] mx-auto">
-                      Average Occupancy Rate Goal
-                    </div>
-                  </div>
-                  <div className="text-slate-500 text-sm italic leading-relaxed max-w-[250px]">
-                    "We transform stagnated sales into consistent high-volume revenue streams."
-                  </div>
-                </div>
-
-                {/* CTA */}
-                <div className="bg-blue-600 p-10 rounded-3xl flex flex-col items-center justify-center text-center relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-                  <div className="text-5xl mb-8 relative z-10">🤝</div>
-                  <h3 className="text-3xl font-bold text-white mb-6 relative z-10">Start Your Transformation</h3>
-                  <p className="text-blue-100 mb-10 leading-relaxed relative z-10">
-                    Get a Complimentary AI-Generated Reputation Audit for your property today.
-                  </p>
-                  <button className="bg-white text-blue-600 font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-xl shadow-xl hover:scale-105 transition-transform w-full relative z-10">
-                    Connect Now
-                  </button>
-                </div>
-              </div>
-
-              {/* Features Grid */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[
-                  { icon: Globe, title: "Omni-Channel Sales", subtitle: "OTA & Direct Growth", desc: "Optimization of Booking.com, MMT, and Agoda combined with aggressive direct booking setups." },
-                  { icon: Sparkles, title: "AI Strategy Tool", subtitle: "Dynamic Content Engine", desc: "AI-driven generation of room descriptions & blog posts based on occupancy & audience.", badge: "LIVE DEMO" },
-                  { icon: Search, title: "Digital Branding", subtitle: "Identity & SEO", desc: "Website maintenance, Database synchronization, and GEO-fencing strategies to dominate local search." },
-                  { icon: Star, title: "Reputation Management", subtitle: "AI-Driven ORM", desc: "Monitoring guest reviews and improving ratings through strategic digital feedback loops." },
-                  { icon: Heart, title: "CRM & Loyalty", subtitle: "Enterprise Engagement", desc: "Utilizing deep guest data to create personalized email marketing and automated guest journeys, mirroring global loyalty standards." },
-                  { icon: AppWindow, title: "Full-Funnel Stack", subtitle: "Comprehensive Ecosystem", desc: "A total solution including high-end website design, professional visual staging, and proprietary-grade booking engine architecture." },
-                  { icon: Settings, title: "Technical Discovery", subtitle: "Schema & SEO 'Plumbing'", desc: "Specialists in technical SEO and Schemas. We handle the internet 'plumbing' ensuring search engines and voice assistants find you with precision." },
-                  { icon: Sparkles, title: "Generative Intelligence", subtitle: "GEO & AI Automation", desc: "Ensuring your hotel dominates in Generative Search (Gemini, ChatGPT). We implement AI reservation desks and fully automated WhatsApp marketing ecosystems." },
-                  { icon: TrendingUp, title: "Profit Protection", subtitle: "Direct Strategy", desc: "Aggressive reduction of OTA commissions through high-converting proprietary websites and precision-targeted Meta/Google performance ads." },
-                  { icon: BarChart, title: "Growth Velocity", subtitle: "Data-Driven PR", desc: "Utilizing advanced brand scaling algorithms and strategic PR to position your property as the undisputed dominant leader in your local market." }
-                ].map((item, i) => (
-                  <div key={i} className="bg-slate-900/80 backdrop-blur-sm p-8 rounded-3xl border border-slate-800 flex flex-col group hover:border-slate-600 transition-colors">
-                    <div className="flex justify-between items-start mb-12">
-                      <div className="w-14 h-14 bg-slate-800 rounded-2xl flex items-center justify-center text-slate-300 group-hover:text-white transition-colors shadow-inner shadow-black/20">
-                        <item.icon className="w-6 h-6" />
-                      </div>
-                      {item.badge && <span className="text-[10px] font-bold text-amber-500 bg-amber-500/10 px-3 py-1 rounded-md uppercase tracking-wider border border-amber-500/20">{item.badge}</span>}
-                    </div>
-                    <div className="text-amber-500 text-[10px] font-bold uppercase tracking-widest mb-3">{item.title}</div>
-                    <h4 className="text-2xl font-bold text-white mb-4">{item.subtitle}</h4>
-                    <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
-                
-                {/* The Strategic Edge - Wide Card */}
-                <div className="bg-slate-900/80 backdrop-blur-sm p-10 rounded-3xl border border-slate-800 flex flex-col md:col-span-2 lg:col-span-2 group hover:border-slate-600 transition-colors">
-                  <div className="flex flex-col md:flex-row gap-10 items-start md:items-center">
-                    <div className="w-24 h-24 bg-amber-900/30 rounded-3xl flex items-center justify-center text-amber-500 flex-shrink-0 shadow-inner shadow-amber-900/50">
-                      <Building className="w-12 h-12" />
-                    </div>
-                    <div>
-                      <div className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-4">The Strategic Edge</div>
-                      <h4 className="text-3xl font-serif italic text-white mb-6">"Built by hoteliers, for hoteliers."</h4>
-                      <p className="text-slate-400 leading-relaxed text-lg">
-                        We specialize in <strong className="text-white">hotel openings</strong> and <strong className="text-white">brand conversions</strong>. Making us the definitive choice if you are launching a new property and need operational grit paired with digital speed.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Strategic Core Functions */}
         <section id="strategic-management" className="py-20">
           <div className="text-center mb-16 max-w-3xl mx-auto">
@@ -645,6 +486,165 @@ export default function App() {
       </main>
 
       <div className="max-w-7xl mx-auto px-6">
+        {/* About Us Section */}
+        <section id="about-us" className="py-20">
+          <div className="bg-slate-950 rounded-[3rem] p-6 md:p-12 text-white shadow-2xl relative overflow-hidden">
+            {/* Background Decorators */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[80px] pointer-events-none" />
+            
+            <div className="text-center mb-16 relative z-10">
+              <h2 className="text-sm font-bold tracking-widest text-sky-500 uppercase mb-3">About Us</h2>
+              <h3 className="text-4xl md:text-5xl font-black text-white mb-6">Redefining Hospitality Strategy</h3>
+            </div>
+
+            <div className="relative z-10">
+              {/* Profile & Philosophy Row */}
+              <div className="grid lg:grid-cols-3 gap-6 mb-6">
+                <div className="lg:col-span-2 bg-slate-900/80 backdrop-blur-sm p-10 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                  <div>
+                    <span className="inline-block px-4 py-1.5 bg-slate-800 text-amber-500 text-xs font-bold rounded-full mb-8">Hospitality Strategist & Revenue Expert</span>
+                    <h3 className="text-5xl font-serif mb-6 text-white">Raman Mankotia</h3>
+                    <p className="text-slate-400 text-lg leading-relaxed mb-10 max-w-2xl">
+                      Multi-profile Hospitality Veteran & Digital Growth Architect. Expert in OTA ecosystem mastery, strategic tech adoption, and SEO/SMO—now pioneering the AI revolution in modern hospitality revenue with <strong>Hotelco</strong>.
+                    </p>
+                  </div>
+                  <div className="flex gap-12">
+                    <div>
+                      <div className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-2">Founder</div>
+                      <div className="text-slate-300 text-sm">Hotelco</div>
+                    </div>
+                    <div>
+                      <div className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-2">Ex-GM</div>
+                      <div className="text-slate-300 text-sm">Hotel Grand Godwin</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-amber-500 p-10 rounded-3xl text-slate-900 flex flex-col justify-between relative overflow-hidden">
+                  <div className="absolute -right-10 -bottom-10 opacity-10">
+                    <Building className="w-64 h-64" />
+                  </div>
+                  <div className="relative z-10">
+                    <div className="text-xs font-bold uppercase tracking-widest mb-8 text-amber-900">Core Philosophy</div>
+                    <h3 className="text-4xl font-serif italic mb-8">"The Digital Hotelier Vision"</h3>
+                    <p className="text-amber-950 font-medium leading-relaxed text-lg">
+                      "After years of establishing excellence in the hospitality industry, I am launching a platform dedicated to maximizing the revenue potential of individual hotel properties."
+                    </p>
+                  </div>
+                  <div className="mt-12 flex justify-between items-center font-bold text-sm tracking-widest uppercase cursor-pointer hover:translate-x-2 transition-transform relative z-10">
+                    Read Story <ArrowRight className="w-5 h-5" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Roles, Target Impact, CTA Row */}
+              <div className="grid lg:grid-cols-3 gap-6 mb-16">
+                {/* Roles */}
+                <div className="bg-slate-900/80 backdrop-blur-sm p-10 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                  <div className="space-y-6">
+                    <div>
+                      <div className="font-bold text-white text-lg">General Manager</div>
+                      <div className="text-slate-400 text-sm italic">Hotel Grand Godwin & Godwin Deluxe</div>
+                    </div>
+                    <div className="border-t border-slate-800/50 pt-6">
+                      <div className="font-bold text-white text-lg">Founder</div>
+                      <div className="text-slate-400 text-sm italic">Hotelco (Voyage of India)</div>
+                    </div>
+                    <div className="border-t border-slate-800/50 pt-6">
+                      <div className="font-bold text-white text-lg">Authorized Agent</div>
+                      <div className="text-slate-400 text-sm italic">IRCTC Distribution & B2B Portals</div>
+                    </div>
+                    <div className="border-t border-slate-800/50 pt-6">
+                      <div className="font-bold text-white text-lg">Tech Specialist</div>
+                      <div className="text-slate-400 text-sm italic">GitHub & GoDaddy UI/UX Optimization</div>
+                    </div>
+                  </div>
+                  <div className="mt-8 flex flex-wrap gap-4">
+                    <div className="flex items-center gap-2 bg-slate-800/50 px-4 py-2 rounded-lg text-xs font-bold text-slate-300">
+                      <MapPin className="w-4 h-4 text-amber-500" /> PAN INDIA
+                    </div>
+                    <div className="flex items-center gap-2 bg-slate-800/50 px-4 py-2 rounded-lg text-xs font-bold text-slate-300">
+                      <Users className="w-4 h-4 text-amber-500" /> 500+ CONNECTIONS
+                    </div>
+                  </div>
+                </div>
+
+                {/* Target Impact */}
+                <div className="bg-slate-900/80 backdrop-blur-sm p-10 rounded-3xl border border-slate-800 flex flex-col items-center justify-center text-center">
+                  <div className="text-amber-500 text-xs font-bold tracking-widest uppercase mb-10">Target Impact</div>
+                  <div className="mb-10">
+                    <div className="text-8xl font-serif text-amber-500 mb-6 drop-shadow-lg">90%<span className="text-5xl align-top">+</span></div>
+                    <div className="text-slate-300 text-sm tracking-widest font-bold uppercase leading-relaxed max-w-[200px] mx-auto">
+                      Average Occupancy Rate Goal
+                    </div>
+                  </div>
+                  <div className="text-slate-500 text-sm italic leading-relaxed max-w-[250px]">
+                    "We transform stagnated sales into consistent high-volume revenue streams."
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="bg-blue-600 p-10 rounded-3xl flex flex-col items-center justify-center text-center relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+                  <div className="text-5xl mb-8 relative z-10">🤝</div>
+                  <h3 className="text-3xl font-bold text-white mb-6 relative z-10">Start Your Transformation</h3>
+                  <p className="text-blue-100 mb-10 leading-relaxed relative z-10">
+                    Get a Complimentary AI-Generated Reputation Audit for your property today.
+                  </p>
+                  <button className="bg-white text-blue-600 font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-xl shadow-xl hover:scale-105 transition-transform w-full relative z-10">
+                    Connect Now
+                  </button>
+                </div>
+              </div>
+
+              {/* Features Grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  { icon: Globe, title: "Omni-Channel Sales", subtitle: "OTA & Direct Growth", desc: "Optimization of Booking.com, MMT, and Agoda combined with aggressive direct booking setups." },
+                  { icon: Sparkles, title: "AI Strategy Tool", subtitle: "Dynamic Content Engine", desc: "AI-driven generation of room descriptions & blog posts based on occupancy & audience.", badge: "LIVE DEMO" },
+                  { icon: Search, title: "Digital Branding", subtitle: "Identity & SEO", desc: "Website maintenance, Database synchronization, and GEO-fencing strategies to dominate local search." },
+                  { icon: Star, title: "Reputation Management", subtitle: "AI-Driven ORM", desc: "Monitoring guest reviews and improving ratings through strategic digital feedback loops." },
+                  { icon: Heart, title: "CRM & Loyalty", subtitle: "Enterprise Engagement", desc: "Utilizing deep guest data to create personalized email marketing and automated guest journeys, mirroring global loyalty standards." },
+                  { icon: AppWindow, title: "Full-Funnel Stack", subtitle: "Comprehensive Ecosystem", desc: "A total solution including high-end website design, professional visual staging, and proprietary-grade booking engine architecture." },
+                  { icon: Settings, title: "Technical Discovery", subtitle: "Schema & SEO 'Plumbing'", desc: "Specialists in technical SEO and Schemas. We handle the internet 'plumbing' ensuring search engines and voice assistants find you with precision." },
+                  { icon: Sparkles, title: "Generative Intelligence", subtitle: "GEO & AI Automation", desc: "Ensuring your hotel dominates in Generative Search (Gemini, ChatGPT). We implement AI reservation desks and fully automated WhatsApp marketing ecosystems." },
+                  { icon: TrendingUp, title: "Profit Protection", subtitle: "Direct Strategy", desc: "Aggressive reduction of OTA commissions through high-converting proprietary websites and precision-targeted Meta/Google performance ads." },
+                  { icon: BarChart, title: "Growth Velocity", subtitle: "Data-Driven PR", desc: "Utilizing advanced brand scaling algorithms and strategic PR to position your property as the undisputed dominant leader in your local market." }
+                ].map((item, i) => (
+                  <div key={i} className="bg-slate-900/80 backdrop-blur-sm p-8 rounded-3xl border border-slate-800 flex flex-col group hover:border-slate-600 transition-colors">
+                    <div className="flex justify-between items-start mb-12">
+                      <div className="w-14 h-14 bg-slate-800 rounded-2xl flex items-center justify-center text-slate-300 group-hover:text-white transition-colors shadow-inner shadow-black/20">
+                        <item.icon className="w-6 h-6" />
+                      </div>
+                      {item.badge && <span className="text-[10px] font-bold text-amber-500 bg-amber-500/10 px-3 py-1 rounded-md uppercase tracking-wider border border-amber-500/20">{item.badge}</span>}
+                    </div>
+                    <div className="text-amber-500 text-[10px] font-bold uppercase tracking-widest mb-3">{item.title}</div>
+                    <h4 className="text-2xl font-bold text-white mb-4">{item.subtitle}</h4>
+                    <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+                
+                {/* The Strategic Edge - Wide Card */}
+                <div className="bg-slate-900/80 backdrop-blur-sm p-10 rounded-3xl border border-slate-800 flex flex-col md:col-span-2 lg:col-span-2 group hover:border-slate-600 transition-colors">
+                  <div className="flex flex-col md:flex-row gap-10 items-start md:items-center">
+                    <div className="w-24 h-24 bg-amber-900/30 rounded-3xl flex items-center justify-center text-amber-500 flex-shrink-0 shadow-inner shadow-amber-900/50">
+                      <Building className="w-12 h-12" />
+                    </div>
+                    <div>
+                      <div className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-4">The Strategic Edge</div>
+                      <h4 className="text-3xl font-serif italic text-white mb-6">"Built by hoteliers, for hoteliers."</h4>
+                      <p className="text-slate-400 leading-relaxed text-lg">
+                        We specialize in <strong className="text-white">hotel openings</strong> and <strong className="text-white">brand conversions</strong>. Making us the definitive choice if you are launching a new property and need operational grit paired with digital speed.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Contact Us Section */}
         <section id="contact" className="py-10 pb-20">
           <div className="grid lg:grid-cols-3 gap-6">
