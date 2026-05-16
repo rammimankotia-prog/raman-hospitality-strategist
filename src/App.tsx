@@ -647,6 +647,14 @@ export default function App() {
 
         {/* Contact Us Section */}
         <section id="contact" className="py-10 pb-20">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-sm font-bold tracking-widest text-sky-500 uppercase mb-3">Contact Us</h2>
+            <h3 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">Ready to Scale Your Revenue?</h3>
+            <p className="text-slate-600 font-body leading-relaxed text-lg">
+              Get in touch with us for a comprehensive audit of your digital property and revenue strategy.
+            </p>
+          </div>
+          
           <div className="grid lg:grid-cols-3 gap-6">
             {/* Consultation Form */}
             <div className="lg:col-span-2 bg-slate-900 p-8 md:p-12 rounded-3xl border border-slate-800 text-white shadow-xl shadow-slate-900/20">
