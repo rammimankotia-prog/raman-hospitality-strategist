@@ -14,14 +14,26 @@ import {
   Mail,
   ChevronRight,
   ClipboardCheck,
-  MonitorSmartphone,
   Target,
   MessageSquareHeart,
   LineChart,
   ShieldCheck,
   Award,
   Share2,
-  Sparkles
+  Sparkles,
+  Zap,
+  UserPlus,
+  Database,
+  Network,
+  LayoutTemplate,
+  Laptop,
+  Globe,
+  ShoppingCart,
+  CreditCard,
+  Instagram,
+  Facebook,
+  Linkedin,
+  Youtube
 } from "lucide-react";
 import { FloatingBookingWidget } from "./components/FloatingBookingWidget";
 import { seoData } from "./data/seoData";
@@ -278,9 +290,157 @@ export default function App() {
             </motion.div>
           </div>
         </section>
+
+        {/* Marketing Add-ons & CRM */}
+        <section className="py-10">
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div whileHover={{ y: -5 }} className="bg-white p-8 rounded-3xl border border-sky-50 shadow-xl shadow-sky-900/5 group">
+              <div className="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 mb-6 group-hover:scale-110 transition-transform">
+                <Zap className="w-7 h-7" />
+              </div>
+              <h4 className="text-xl font-bold text-slate-900 mb-3">Performance Marketing</h4>
+              <p className="text-slate-600 text-sm leading-relaxed font-body mb-6">
+                Targeted paid media campaigns that drive immediate ROI. We protect your brand clicks and retarget high-intent visitors.
+              </p>
+              <ul className="space-y-3">
+                {['GOOGLE ADS (SEM)', 'RETARGETING ADS', 'SOCIAL PERFORMANCE'].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm font-bold text-slate-700">
+                    <span className="w-2 h-2 rounded-full bg-sky-500"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div whileHover={{ y: -5 }} className="bg-white p-8 rounded-3xl border border-sky-50 shadow-xl shadow-sky-900/5 group">
+              <div className="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 mb-6 group-hover:scale-110 transition-transform">
+                <UserPlus className="w-7 h-7" />
+              </div>
+              <h4 className="text-xl font-bold text-slate-900 mb-3">CRM & Loyalty Marketing</h4>
+              <p className="text-slate-600 text-sm leading-relaxed font-body mb-6">
+                Retaining guests is cheaper than finding new ones. We implement personalized email marketing and database segmentation.
+              </p>
+              <ul className="space-y-3">
+                {['EMAIL CAMPAIGNS', 'VIP SEGMENTATION', 'LOYALTY PROGRAMS'].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm font-bold text-slate-700">
+                    <span className="w-2 h-2 rounded-full bg-sky-500"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* KPIs */}
+        <section className="py-10">
+          <div className="bg-slate-900 p-10 rounded-3xl shadow-xl shadow-slate-900/20 text-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+            <h2 className="text-xs font-bold tracking-widest text-sky-400 uppercase mb-3 relative z-10">Key Performance Indicators (KPIs)</h2>
+            <p className="text-slate-300 font-body mb-10 text-lg relative z-10">How we measure your property's success and our performance.</p>
+            
+            <div className="grid md:grid-cols-3 gap-8 relative z-10">
+              <div className="border-l-2 border-sky-500/30 pl-6">
+                <h4 className="text-xl font-bold mb-2">Look-to-Book Ratio</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">The percentage of visitors who convert into confirmed reservations.</p>
+              </div>
+              <div className="border-l-2 border-sky-500/30 pl-6">
+                <h4 className="text-xl font-bold mb-2">Cost per Acquisition (CPA)</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">Marketing spend efficiency for every guest booking acquired.</p>
+              </div>
+              <div className="border-l-2 border-sky-500/30 pl-6">
+                <h4 className="text-xl font-bold mb-2">Direct vs. OTA Mix</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">Optimizing the ratio of direct bookings to third-party channel sales.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* The Hospitality Tech Ecosystem */}
+        <section className="py-10">
+          <h2 className="text-sm font-bold tracking-widest text-sky-500 uppercase mb-8 text-center md:text-left">The Hospitality Tech Ecosystem</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: Database, title: "PMS", subtitle: "PROPERTY MANAGEMENT SYSTEM", desc: "The central hub for front-desk, billing, and housekeeping.", rec: "Cloudbeds (Small-Mid) / IDS Next (Enterprise)" },
+              { icon: Network, title: "Channel Manager", subtitle: "DISTRIBUTION GATEWAY", desc: "Synchronizes prices and inventory across all OTAs in real-time.", rec: "STAAH (APAC/India) / SiteMinder (Global)" },
+              { icon: LayoutTemplate, title: "CMS", subtitle: "CONTENT MANAGEMENT", desc: "Controls your website and direct booking engine UI/UX.", rec: "React+Vite (Speed) / WordPress (Ease)" },
+              { icon: Laptop, title: "IDS", subtitle: "INTERNET DISTRIBUTION SYSTEM", desc: "Bridges the property to GDS and global corporate portals.", rec: "STAAH Max / RateGain" }
+            ].map((item, i) => (
+              <motion.div key={i} whileHover={{ y: -5 }} className="bg-white p-6 rounded-2xl border border-sky-50 shadow-lg shadow-sky-900/5 flex flex-col h-full">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="w-12 h-12 bg-sky-50 rounded-xl flex items-center justify-center text-sky-600">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <span className="font-bold text-slate-900">{item.title}</span>
+                </div>
+                <h5 className="text-xs font-bold tracking-wider text-slate-500 uppercase mb-2">{item.subtitle}</h5>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">{item.desc}</p>
+                <div className="pt-4 border-t border-sky-50">
+                  <span className="block text-[10px] font-bold tracking-widest text-sky-500 uppercase mb-1">Expert Recommendation</span>
+                  <span className="text-sm font-bold text-slate-800 italic">{item.rec}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Direct Booking Infrastructure */}
+        <section className="py-10">
+          <h2 className="text-sm font-bold tracking-widest text-sky-500 uppercase mb-8 text-center md:text-left">Direct Booking Infrastructure</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { icon: Globe, title: "Website", subtitle: "THE DIGITAL SHOWCASE", desc: "Optimized UI/UX for mobile-first hospitality browsing with ultra-fast load times.", rec: "React/Next.js (Performance) or Simplotel (Hospitality Specific)" },
+              { icon: ShoppingCart, title: "IBE", subtitle: "INTERNET BOOKING ENGINE", desc: "The checkout funnel that converts visitors into confirmed reservations without OTA commissions.", rec: "STAAH Max / Simplotel / Synxis" },
+              { icon: CreditCard, title: "Payment Gateway", subtitle: "SECURE TRANSACTION HUB", desc: "Compliant and smooth payment processing for international and domestic guests.", rec: "Razorpay (India) / Stripe (Global / High-End)" }
+            ].map((item, i) => (
+              <motion.div key={i} whileHover={{ y: -5 }} className="bg-white p-6 rounded-2xl border border-sky-50 shadow-lg shadow-sky-900/5 flex flex-col h-full">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="w-12 h-12 bg-sky-50 rounded-xl flex items-center justify-center text-sky-600">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <span className="font-bold text-slate-900">{item.title}</span>
+                </div>
+                <h5 className="text-xs font-bold tracking-wider text-slate-500 uppercase mb-2">{item.subtitle}</h5>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">{item.desc}</p>
+                <div className="pt-4 border-t border-sky-50">
+                  <span className="block text-[10px] font-bold tracking-widest text-sky-500 uppercase mb-1">Expert Recommendation</span>
+                  <span className="text-sm font-bold text-slate-800 italic">{item.rec}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Social Media: Branding & Conversion */}
+        <section className="py-10 pb-20">
+          <h2 className="text-sm font-bold tracking-widest text-sky-500 uppercase mb-8 text-center md:text-left">Social Media: Branding & Conversion</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: Instagram, title: "Instagram", subtitle: "VISUAL STORYTELLING", desc: "The primary platform for 'Inspirational' branding. Perfect for high-quality reels and guest-generated content.", rec: "Focus on Reels & Influencer Collaborations" },
+              { icon: Facebook, title: "Facebook", subtitle: "COMMUNITY & AD ENGINE", desc: "Essential for community building and highly targeted Meta-ads aimed at families and older demographics.", rec: "Use for Direct Booking Retargeting Ads" },
+              { icon: Linkedin, title: "LinkedIn", subtitle: "B2B & CORPORATE TRAVEL", desc: "Critical for attracting corporate accounts, MICE events, and positioning yourself as a thought leader.", rec: "Connect with Corporate Travel Managers" },
+              { icon: Youtube, title: "YouTube", subtitle: "LONG-FORM VIDEO & SEO", desc: "The 2nd largest search engine. Ideal for room tours, culinary showcases, and destination guides that build trust.", rec: "Optimized Property Tours & Educational Content" }
+            ].map((item, i) => (
+              <motion.div key={i} whileHover={{ y: -5 }} className="bg-white p-6 rounded-2xl border border-sky-50 shadow-lg shadow-sky-900/5 flex flex-col h-full">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="w-12 h-12 bg-sky-50 rounded-xl flex items-center justify-center text-sky-600">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <span className="font-bold text-slate-900">{item.title}</span>
+                </div>
+                <h5 className="text-xs font-bold tracking-wider text-slate-500 uppercase mb-2">{item.subtitle}</h5>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">{item.desc}</p>
+                <div className="pt-4 border-t border-sky-50">
+                  <span className="block text-[10px] font-bold tracking-widest text-sky-500 uppercase mb-1">Expert Recommendation</span>
+                  <span className="text-sm font-bold text-slate-800 italic">{item.rec}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
       </main>
 
-      <footer className="bg-white border-t border-sky-100 mt-20 pt-16 pb-8">
+      <footer className="bg-white border-t border-sky-100 mt-10 pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="md:col-span-2">
