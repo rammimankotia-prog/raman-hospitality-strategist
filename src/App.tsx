@@ -44,10 +44,11 @@ import {
   Heart,
   Settings,
   Clock,
-  TrendingUp,
   BarChart,
   AppWindow,
-  Star
+  CheckCircle,
+  AlertTriangle,
+  Flame
 } from "lucide-react";
 import { FloatingBookingWidget } from "./components/FloatingBookingWidget";
 import { seoData } from "./data/seoData";
@@ -160,19 +161,97 @@ export default function App() {
               </div>
             </motion.div>
             
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl flex items-center gap-3 transition-colors"
-            >
-              {seoData.content.hero.cta}
-              <ArrowRight className="w-5 h-5" />
-            </motion.button>
+            <div className="flex flex-col sm:flex-row gap-4 mt-2">
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl flex items-center gap-3 transition-colors"
+              >
+                Get Free Revenue Audit
+                <ArrowRight className="w-5 h-5" />
+              </motion.a>
+              <motion.a
+                href="#strategic-management"
+                whileHover={{ scale: 1.02 }}
+                className="border-2 border-slate-300 hover:border-sky-500 text-slate-700 hover:text-sky-600 px-8 py-4 rounded-full font-bold text-lg flex items-center gap-3 transition-all"
+              >
+                Explore Services
+              </motion.a>
+            </div>
           </motion.div>
         </section>
 
+        {/* Urgency Ticker */}
+        <div className="overflow-hidden bg-slate-900 rounded-2xl py-3 mb-4">
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+            className="flex gap-12 whitespace-nowrap text-sm font-bold text-amber-400 uppercase tracking-widest px-4"
+          >
+            {[
+              "🔥 Stop Losing 25% to OTA Commissions",
+              "📈 Average 90%+ Occupancy Achieved",
+              "⚡ AI-Powered Digital Audits — Free",
+              "🏨 Pan India Hospitality Consulting",
+              "💰 Direct Booking Revenue Up 40%",
+              "🌐 Rank #1 on Google for Your Hotel",
+              "🔥 Stop Losing 25% to OTA Commissions",
+              "📈 Average 90%+ Occupancy Achieved",
+              "⚡ AI-Powered Digital Audits — Free",
+              "🏨 Pan India Hospitality Consulting",
+              "💰 Direct Booking Revenue Up 40%",
+              "🌐 Rank #1 on Google for Your Hotel",
+            ].map((t, i) => (
+              <span key={i} className="flex items-center gap-8">{t} <span className="text-slate-600">|</span></span>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Animated Stats Row */}
+        <section className="py-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { value: "90%+", label: "Avg. Occupancy Goal", color: "text-amber-500" },
+              { value: "40%", label: "Direct Booking Growth", color: "text-sky-500" },
+              { value: "15+", label: "Years in Hospitality", color: "text-emerald-500" },
+              { value: "500+", label: "Hotels Consulted", color: "text-purple-500" },
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -4, scale: 1.02 }}
+                className="bg-white rounded-3xl p-6 border border-sky-50 shadow-xl shadow-sky-900/5 text-center"
+              >
+                <div className={`text-4xl md:text-5xl font-black mb-2 ${stat.color}`}>{stat.value}</div>
+                <div className="text-xs font-bold tracking-widest text-slate-400 uppercase">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Platform Logos Strip */}
+        <section className="py-6">
+          <div className="bg-white rounded-3xl border border-sky-50 shadow-xl shadow-sky-900/5 p-8">
+            <p className="text-center text-xs font-bold tracking-widest text-slate-400 uppercase mb-6">Platforms & Channels We Master</p>
+            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+              {[
+                "Booking.com", "Expedia", "MakeMyTrip", "Agoda", "Goibibo",
+                "TripAdvisor", "Google Hotels", "Airbnb", "IRCTC", "Yatra"
+              ].map((platform, i) => (
+                <div key={i} className="px-4 py-2 bg-slate-50 rounded-xl border border-slate-100 text-slate-500 font-bold text-sm tracking-wide hover:text-sky-600 hover:border-sky-200 hover:bg-sky-50 transition-all cursor-default">
+                  {platform}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Experience Metrics & Partnerships */}
-        <section className="py-10">
+        <section className="py-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Experience Metrics */}
             <motion.div whileHover={{ y: -5 }} className="bg-white p-8 rounded-3xl border border-sky-50 shadow-xl shadow-sky-900/5 lg:col-span-2 flex flex-col md:flex-row justify-between gap-8 items-center">
@@ -226,6 +305,43 @@ export default function App() {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Why OTA-Dependent Hotels Are Bleeding — Urgency Section */}
+        <section className="py-8">
+          <div className="bg-gradient-to-br from-red-950 via-slate-900 to-slate-950 rounded-3xl p-8 md:p-12 border border-red-900/30 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="grid md:grid-cols-2 gap-10 items-center relative z-10">
+              <div>
+                <div className="flex items-center gap-2 text-red-400 text-xs font-bold uppercase tracking-widest mb-4">
+                  <AlertTriangle className="w-4 h-4" /> The Hidden Revenue Drain
+                </div>
+                <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
+                  Your Hotel Is Losing <span className="text-red-400">₹15-25 Lakhs</span> Every Year to OTA Commissions.
+                </h3>
+                <p className="text-slate-400 leading-relaxed mb-8">
+                  Most independent hotels pay 18-25% commission on every booking to OTAs — money that could be <strong className="text-white">your pure profit</strong>. We reverse this with aggressive direct booking strategies, zero-commission engines, and AI-driven guest acquisition.
+                </p>
+                <a href="#contact" className="inline-flex items-center gap-3 bg-red-500 hover:bg-red-600 text-white font-bold px-6 py-3 rounded-xl transition-colors shadow-lg shadow-red-900/30">
+                  <Flame className="w-5 h-5" /> Stop the Bleed — Get Free Audit
+                </a>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { label: "OTA Commission Lost", value: "25%", icon: "📉", bad: true },
+                  { label: "With Direct Booking", value: "0%", icon: "🎯", bad: false },
+                  { label: "Avg. Occupancy Gap", value: "35%", icon: "🛏️", bad: true },
+                  { label: "After Our Strategy", value: "90%+", icon: "🚀", bad: false },
+                ].map((item, i) => (
+                  <div key={i} className={`p-5 rounded-2xl border ${item.bad ? 'bg-red-900/20 border-red-800/40' : 'bg-emerald-900/20 border-emerald-700/30'}`}>
+                    <div className="text-2xl mb-2">{item.icon}</div>
+                    <div className={`text-3xl font-black mb-1 ${item.bad ? 'text-red-400' : 'text-emerald-400'}`}>{item.value}</div>
+                    <div className="text-slate-400 text-xs font-bold uppercase tracking-wider">{item.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -640,6 +756,93 @@ export default function App() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="py-12">
+          <div className="text-center mb-12 max-w-2xl mx-auto">
+            <h2 className="text-sm font-bold tracking-widest text-sky-500 uppercase mb-3">Client Voices</h2>
+            <h3 className="text-4xl font-black text-slate-900">What Hotel Owners Say</h3>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Rajesh Sharma",
+                role: "Owner, Hotel Sunrise Grand — Shimla",
+                stars: 5,
+                text: "Raman's strategy cut our OTA dependency from 80% to 45% in just 6 months. Our direct bookings are now generating pure profit. The AI reputation audit was eye-opening.",
+              },
+              {
+                name: "Priya Kapoor",
+                role: "GM, The Heritage Inn — Rishikesh",
+                stars: 5,
+                text: "We were struggling with low occupancy even in peak season. HotelCo's Google strategy and social media plan filled our rooms in under 3 months. Results speak louder than words.",
+              },
+              {
+                name: "Vikram Mehra",
+                role: "Director, Mehra Palace Group — Jaipur",
+                stars: 5,
+                text: "From website redesign to channel manager integration—HotelCo handled everything. Our RevPAR went up by 34% and we are finally dominating local search. Highly recommended!",
+              }
+            ].map((t, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 }}
+                whileHover={{ y: -6 }}
+                className="bg-white p-8 rounded-3xl border border-sky-50 shadow-xl shadow-sky-900/5 flex flex-col gap-5"
+              >
+                <div className="flex gap-1">
+                  {[...Array(t.stars)].map((_, si) => (
+                    <Star key={si} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="text-slate-600 italic leading-relaxed flex-1">"{t.text}"</p>
+                <div className="border-t border-sky-50 pt-4">
+                  <div className="font-bold text-slate-900">{t.name}</div>
+                  <div className="text-xs text-sky-500 font-medium">{t.role}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Why Choose HotelCo */}
+        <section className="py-8">
+          <div className="bg-gradient-to-br from-sky-600 to-sky-800 rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
+            <div className="absolute -right-20 -top-20 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="grid md:grid-cols-2 gap-10 items-center relative z-10">
+              <div>
+                <h2 className="text-sm font-bold tracking-widest text-sky-200 uppercase mb-4">Why Choose HotelCo.in</h2>
+                <h3 className="text-4xl font-black mb-6 leading-tight">The Only Hospitality Consultant <span className="italic">Built by a Hotel Owner.</span></h3>
+                <p className="text-sky-100 leading-relaxed text-lg">
+                  We don't just consult — we have lived inside hotels. From front desk to General Manager, we understand every pain point and translate it into revenue-generating strategy.
+                </p>
+                <a href="#contact" className="inline-flex items-center gap-3 mt-8 bg-white text-sky-700 font-bold px-6 py-3 rounded-xl hover:bg-sky-50 transition-colors shadow-lg">
+                  Claim Your Free Audit <ArrowRight className="w-5 h-5" />
+                </a>
+              </div>
+              <div className="grid gap-3">
+                {[
+                  "Free AI-Generated Reputation & Revenue Audit",
+                  "Pan India Service with Remote & On-Site Support",
+                  "End-to-end OTA Management on 10+ Platforms",
+                  "Direct Booking Engine Setup — Zero Commission",
+                  "Google SEO + Social Media + WhatsApp Automation",
+                  "Results within 60–90 Days or We Rework Free",
+                  "Dedicated Account Strategist — Not a Call Centre",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3 border border-white/10">
+                    <CheckCircle className="w-5 h-5 text-emerald-300 flex-shrink-0" />
+                    <span className="text-white font-medium text-sm">{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
