@@ -74,7 +74,7 @@ export default function App() {
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-sky-800">
             <a href="#strategic-management" className="hover:text-sky-500 transition-colors">Strategic Management</a>
-            <a href="#destinations" className="hover:text-sky-500 transition-colors">Destinations</a>
+            <a href="#about-us" className="hover:text-sky-500 transition-colors">About Us</a>
             <button className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2.5 rounded-full font-bold shadow-md shadow-sky-200 transition-all hover:scale-105 active:scale-95">
               Book Now
             </button>
@@ -495,7 +495,7 @@ export default function App() {
               <ul className="space-y-3 text-slate-500 text-sm font-medium">
                 <li><a href="#" className="hover:text-sky-500 transition-colors">Home</a></li>
                 <li><a href="#strategic-management" className="hover:text-sky-500 transition-colors">Services</a></li>
-                <li><a href="#destinations" className="hover:text-sky-500 transition-colors">Destinations</a></li>
+                <li><a href="#about-us" className="hover:text-sky-500 transition-colors">About Us</a></li>
                 <li><a href="#" className="hover:text-sky-500 transition-colors">Contact</a></li>
               </ul>
             </div>
