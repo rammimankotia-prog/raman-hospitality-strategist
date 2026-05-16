@@ -12,7 +12,12 @@ import {
   Compass,
   Phone,
   Mail,
-  ChevronRight
+  ChevronRight,
+  ClipboardCheck,
+  MonitorSmartphone,
+  Target,
+  MessageSquareHeart,
+  LineChart
 } from "lucide-react";
 import { FloatingBookingWidget } from "./components/FloatingBookingWidget";
 import { seoData } from "./data/seoData";
@@ -128,106 +133,65 @@ export default function App() {
         {/* Strategic Management */}
         <section id="strategic-management" className="py-20">
           <div className="text-center mb-16">
-            <h2 className="text-sm font-bold tracking-widest text-sky-500 uppercase mb-3">Our Core Expertise</h2>
-            <h3 className="text-4xl md:text-5xl font-black text-slate-900">Strategic Management</h3>
+            <h2 className="text-sm font-bold tracking-widest text-sky-500 uppercase mb-3">Hotel Marketing Strategies</h2>
+            <h3 className="text-4xl md:text-5xl font-black text-slate-900">Our 5-Pillar Approach</h3>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="bg-white p-10 rounded-3xl border border-sky-50 shadow-xl shadow-sky-900/5 group"
-            >
-              <div className="w-16 h-16 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 mb-8 group-hover:scale-110 transition-transform">
-                <Briefcase className="w-8 h-8" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* 1. Onboarding */}
+            <motion.div whileHover={{ y: -10 }} className="bg-white p-8 rounded-3xl border border-sky-50 shadow-xl shadow-sky-900/5 group">
+              <div className="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 mb-6 group-hover:scale-110 transition-transform">
+                <ClipboardCheck className="w-7 h-7" />
               </div>
-              <h4 className="text-2xl font-bold text-slate-900 mb-4">Hotel Operations Excellence</h4>
-              <p className="text-slate-600 leading-relaxed font-body mb-6">
-                Maximizing property performance through advanced revenue strategies, staff training, and deep OTA optimizations. Transform your underperforming hotel into a local market leader.
+              <h4 className="text-xl font-bold text-slate-900 mb-3">1. Onboarding Essentials</h4>
+              <p className="text-slate-600 text-sm leading-relaxed font-body mb-4">
+                Before any campaigns launch, we deeply understand the product. High-Quality Visual Assets, Clear Value Proposition, Accurate Inventory, and Tech Stack Access are mandatory.
               </p>
-              <ul className="space-y-3">
-                {['Revenue Maximization', 'Digital Branding & SEO', 'OTA Ecosystem Mastery'].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm font-medium text-slate-700">
-                    <div className="w-5 h-5 rounded-full bg-sky-100 flex items-center justify-center text-sky-500">
-                      <Star className="w-3 h-3" />
-                    </div>
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </motion.div>
 
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="bg-gradient-to-br from-sky-500 to-sky-700 p-10 rounded-3xl shadow-xl shadow-sky-900/10 text-white group"
-            >
-              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform">
-                <Car className="w-8 h-8" />
+            {/* 2. Digital Infrastructure */}
+            <motion.div whileHover={{ y: -10 }} className="bg-white p-8 rounded-3xl border border-sky-50 shadow-xl shadow-sky-900/5 group">
+              <div className="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 mb-6 group-hover:scale-110 transition-transform">
+                <MonitorSmartphone className="w-7 h-7" />
               </div>
-              <h4 className="text-2xl font-bold mb-4">Private Tour Transport Services</h4>
-              <p className="text-sky-100 leading-relaxed font-body mb-6">
-                Premium North India transportation tailored for luxury and comfort. We manage highly reliable fleets delivering top-tier experiences for demanding travelers.
+              <h4 className="text-xl font-bold text-slate-900 mb-3">2. Strong Digital Infrastructure</h4>
+              <p className="text-slate-600 text-sm leading-relaxed font-body mb-4">
+                A high-converting website, advanced SEO (Traditional & AI Search Readiness), and flawless OTA & Meta-Search Management (rate parity, profile details) form the backbone.
               </p>
-              <ul className="space-y-3">
-                {['Jim Corbett Tour Packages', 'Luxury Sedan & SUV Fleets', 'Bespoke Travel Itineraries'].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm font-medium text-sky-50">
-                    <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-white">
-                      <Users className="w-3 h-3" />
-                    </div>
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </motion.div>
-          </div>
-        </section>
 
-        {/* Travel Destinations */}
-        <section id="destinations" className="py-20">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div>
-              <h2 className="text-sm font-bold tracking-widest text-sky-500 uppercase mb-3">Explore with us</h2>
-              <h3 className="text-4xl md:text-5xl font-black text-slate-900">Curated Travel Destinations</h3>
-            </div>
-            <button className="text-sky-600 font-bold hover:text-sky-800 flex items-center gap-2 transition-colors">
-              View All Destinations <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
+            {/* 3. Targeted Traffic */}
+            <motion.div whileHover={{ y: -10 }} className="bg-gradient-to-br from-sky-500 to-sky-700 p-8 rounded-3xl shadow-xl shadow-sky-900/10 text-white group md:col-span-2 lg:col-span-1">
+              <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                <Target className="w-7 h-7" />
+              </div>
+              <h4 className="text-xl font-bold mb-3">3. Targeted Traffic & Visibility</h4>
+              <p className="text-sky-100 text-sm leading-relaxed font-body mb-4">
+                Driving traffic through localized Paid Campaigns (PPC), engaging Social Media storytelling with influencers, and smart Remarketing Campaigns for abandoned bookings.
+              </p>
+            </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { title: "Kashmir", subtitle: "Paradise on Earth", color: "from-blue-400 to-indigo-600" },
-              { title: "Ladakh", subtitle: "The High Passes", color: "from-amber-500 to-orange-600" },
-              { title: "Rajasthan", subtitle: "Royal Heritage", color: "from-rose-400 to-red-600" }
-            ].map((dest, index) => (
-              <motion.div
-                key={dest.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                whileHover={{ y: -15 }}
-                className="relative h-96 rounded-3xl overflow-hidden group cursor-pointer"
-              >
-                {/* Fallback gradient if we don't have images */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${dest.color} opacity-90 transition-opacity group-hover:opacity-100`}></div>
-                
-                <div className="absolute inset-0 p-8 flex flex-col justify-end text-white bg-gradient-to-t from-slate-900/80 to-transparent">
-                  <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.2 + 0.2 }}
-                  >
-                    <div className="flex items-center gap-2 text-white/80 font-medium text-sm mb-2 uppercase tracking-wider">
-                      <Compass className="w-4 h-4" /> {dest.subtitle}
-                    </div>
-                    <h4 className="text-3xl font-black mb-4">{dest.title}</h4>
-                    <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-2">
-                      <ChevronRight className="w-5 h-5" />
-                    </div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
+            {/* 4. Reputation */}
+            <motion.div whileHover={{ y: -10 }} className="bg-white p-8 rounded-3xl border border-sky-50 shadow-xl shadow-sky-900/5 group md:col-span-1 lg:col-span-2">
+              <div className="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 mb-6 group-hover:scale-110 transition-transform">
+                <MessageSquareHeart className="w-7 h-7" />
+              </div>
+              <h4 className="text-xl font-bold text-slate-900 mb-3">4. Operational & Reputation Management</h4>
+              <p className="text-slate-600 text-sm leading-relaxed font-body mb-4">
+                Promoting a hotel goes beyond the website. We aggregate and respond to guest feedback on Google and OTAs. We utilize CRM for email marketing, personalized loyalty offers, and exclusive direct-booking discounts.
+              </p>
+            </motion.div>
+
+            {/* 5. Analytics */}
+            <motion.div whileHover={{ y: -10 }} className="bg-white p-8 rounded-3xl border border-sky-50 shadow-xl shadow-sky-900/5 group">
+              <div className="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 mb-6 group-hover:scale-110 transition-transform">
+                <LineChart className="w-7 h-7" />
+              </div>
+              <h4 className="text-xl font-bold text-slate-900 mb-3">5. Analytics & Business Intelligence</h4>
+              <p className="text-slate-600 text-sm leading-relaxed font-body mb-4">
+                Continuous data tracking to measure ROI. We monitor profitable channels, cost per acquisition (CPA), and geographic trends to refine where marketing budgets are spent.
+              </p>
+            </motion.div>
           </div>
         </section>
       </main>
@@ -243,7 +207,7 @@ export default function App() {
                 <span className="font-black text-lg text-slate-900">HotelCo.in</span>
               </div>
               <p className="text-slate-500 font-body max-w-sm mb-6 leading-relaxed">
-                Expert in Revenue Growth, Hotel Operations, and Premium North India Transport Services.
+                Expert in Revenue Growth, Hotel Operations, and Digital Marketing Strategies for the Hospitality Industry.
               </p>
             </div>
             <div>
