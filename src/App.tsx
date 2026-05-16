@@ -43,6 +43,7 @@ import {
   Building,
   Heart,
   Settings,
+  Clock,
   TrendingUp,
   BarChart,
   AppWindow,
@@ -82,9 +83,10 @@ export default function App() {
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-sky-800">
             <a href="#strategic-management" className="hover:text-sky-500 transition-colors">Strategic Management</a>
             <a href="#about-us" className="hover:text-sky-500 transition-colors">About Us</a>
-            <button className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2.5 rounded-full font-bold shadow-md shadow-sky-200 transition-all hover:scale-105 active:scale-95">
+            <a href="#contact" className="hover:text-sky-500 transition-colors">Contact</a>
+            <a href="#contact" className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2.5 rounded-full font-bold shadow-md shadow-sky-200 transition-all hover:scale-105 active:scale-95">
               Book Now
-            </button>
+            </a>
           </nav>
         </div>
       </header>
@@ -642,43 +644,113 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="bg-white border-t border-sky-100 mt-10 pt-16 pb-8">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
-            <div className="md:col-span-2">
-               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center text-white">
-                  <Hotel className="w-4 h-4" />
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Contact Us Section */}
+        <section id="contact" className="py-10 pb-20">
+          <div className="grid lg:grid-cols-3 gap-6">
+            {/* Consultation Form */}
+            <div className="lg:col-span-2 bg-slate-900 p-8 md:p-12 rounded-3xl border border-slate-800 text-white shadow-xl shadow-slate-900/20">
+              <div className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-4">Consultation Request</div>
+              <h3 className="text-3xl md:text-4xl font-serif mb-10">Start Your Digital Property Audit <span className="text-amber-500 italic">Today</span>.</h3>
+              
+              <form className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Property Name / Your Name</label>
+                    <input type="text" placeholder="Godwin Group / Raman" className="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors" />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Email Address</label>
+                    <input type="email" placeholder="rammimankotia@gmail.com" className="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors" />
+                  </div>
                 </div>
-                <span className="font-black text-lg text-slate-900">HotelCo.in</span>
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Primary Challenge</label>
+                  <input type="text" placeholder="High OTA Commissions Audit" className="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors" />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Message / Requirements</label>
+                  <textarea rows={4} placeholder="Tell us about the challenges your property is facing..." className="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors resize-none"></textarea>
+                </div>
+                <button type="button" className="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold uppercase tracking-widest text-sm px-8 py-5 rounded-xl shadow-lg transition-colors flex items-center justify-center gap-3 mt-8">
+                  SEND AUDIT REQUEST <MessageCircle className="w-5 h-5" />
+                </button>
+              </form>
+            </div>
+
+            {/* Direct Connection */}
+            <div className="bg-slate-900 p-8 md:p-12 rounded-3xl border border-slate-800 text-white flex flex-col justify-between shadow-xl shadow-slate-900/20">
+              <div>
+                <div className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-10">Direct Connection</div>
+                
+                <div className="space-y-10">
+                  <div className="flex gap-5 items-start group">
+                    <div className="w-12 h-12 bg-amber-900/30 rounded-full flex items-center justify-center text-amber-500 flex-shrink-0 group-hover:bg-amber-500 group-hover:text-slate-900 transition-colors cursor-pointer">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">WhatsApp / Call</div>
+                      <div className="text-lg font-bold text-white mb-1">+91 97XXXXXX73</div>
+                      <div className="text-slate-500 text-sm italic">Raman Mankotia</div>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-5 items-start group">
+                    <div className="w-12 h-12 bg-amber-900/30 rounded-full flex items-center justify-center text-amber-500 flex-shrink-0 group-hover:bg-amber-500 group-hover:text-slate-900 transition-colors cursor-pointer">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Professional Email</div>
+                      <div className="text-lg font-bold text-white mb-1 break-all">rammimankotia@gmail.com</div>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-5 items-start group">
+                    <div className="w-12 h-12 bg-amber-900/30 rounded-full flex items-center justify-center text-amber-500 flex-shrink-0 group-hover:bg-amber-500 group-hover:text-slate-900 transition-colors cursor-pointer">
+                      <Linkedin className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">LinkedIn Strategy</div>
+                      <div className="text-lg font-bold text-white mb-1">Raman Mankotia</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p className="text-slate-500 font-body max-w-sm mb-6 leading-relaxed">
-                Expert in Revenue Growth, Hotel Operations, and Digital Marketing Strategies for the Hospitality Industry.
-              </p>
-            </div>
-            <div>
-              <h5 className="font-bold text-slate-900 mb-4">Quick Links</h5>
-              <ul className="space-y-3 text-slate-500 text-sm font-medium">
-                <li><a href="#" className="hover:text-sky-500 transition-colors">Home</a></li>
-                <li><a href="#strategic-management" className="hover:text-sky-500 transition-colors">Services</a></li>
-                <li><a href="#about-us" className="hover:text-sky-500 transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-sky-500 transition-colors">Contact</a></li>
-              </ul>
-            </div>
-            <div>
-              <h5 className="font-bold text-slate-900 mb-4">Contact Info</h5>
-              <ul className="space-y-3 text-slate-500 text-sm font-medium">
-                <li className="flex items-center gap-2"><MapPin className="w-4 h-4 text-sky-400" /> New Delhi, India</li>
-                <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-sky-400" /> +91 (XXX) XXX-XXXX</li>
-                <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-sky-400" /> info@raman-hospitality.com</li>
-              </ul>
+              <div className="mt-12 pt-8 border-t border-slate-800/50">
+                <div className="flex items-start gap-4">
+                  <MapPin className="w-6 h-6 text-slate-500 mt-1" />
+                  <div>
+                    <div className="text-2xl font-bold text-white mb-1">Jammu & Kashmir</div>
+                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Servicing PAN India Clients</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="text-center text-slate-400 text-sm font-medium pt-8 border-t border-sky-50">
-            © 2026 HotelCo.in - Hospitality Strategist. All rights reserved.
+          
+          <div className="bg-amber-500 rounded-2xl px-8 py-5 flex flex-col md:flex-row justify-between items-center gap-4 mt-6 shadow-xl shadow-amber-500/10">
+            <div className="flex items-center gap-3 text-slate-900 font-bold text-[11px] md:text-xs tracking-widest uppercase">
+              <Clock className="w-5 h-5" /> TYPICAL RESPONSE TIME: &lt; 4 HOURS
+            </div>
+            <div className="flex items-center gap-3 text-slate-900 font-bold text-[11px] md:text-xs tracking-widest uppercase">
+              <Globe className="w-5 h-5" /> AVAILABLE FOR REMOTE & ON-SITE CONSULTATION
+            </div>
           </div>
-        </div>
-      </footer>
+
+          <footer className="bg-slate-900/50 py-8 border-t border-slate-800/50 mt-6 rounded-3xl px-8 flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl shadow-slate-900/20 backdrop-blur-sm">
+            <div className="flex items-center gap-4 text-[11px] font-bold text-slate-400 tracking-widest uppercase">
+              <span>© 2026 RAMAN MANKOTIA</span>
+              <span className="w-px h-3 bg-slate-700"></span>
+              <span className="italic">HOTELCO</span>
+            </div>
+            <div className="flex items-center gap-6">
+              <a href="#" className="text-slate-400 hover:text-amber-500 transition-colors"><Linkedin className="w-5 h-5" /></a>
+              <a href="mailto:rammimankotia@gmail.com" className="text-slate-400 hover:text-amber-500 transition-colors"><Mail className="w-5 h-5" /></a>
+              <a href="#" className="text-white font-bold text-xs tracking-widest uppercase hover:text-amber-500 transition-colors">B2B PORTAL</a>
+            </div>
+          </footer>
+        </section>
+      </div>
 
       {/* Floating Widget Component */}
       <FloatingBookingWidget />
