@@ -720,7 +720,7 @@ export default function App() {
                 <div className="flex items-start gap-4">
                   <MapPin className="w-6 h-6 text-slate-500 mt-1" />
                   <div>
-                    <div className="text-2xl font-bold text-white mb-1">Jammu & Kashmir</div>
+                    <div className="text-2xl font-bold text-white mb-1">New Delhi</div>
                     <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Servicing PAN India Clients</div>
                   </div>
                 </div>
