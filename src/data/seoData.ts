@@ -23,13 +23,13 @@ export const seoData = {
   },
   "content": {
     "hero": {
-      "title": "Elevating Hospitality to an Art Form",
-      "subtitle": "Strategic Marketing & Revenue Operations for the Modern Hotel.",
-      "cta": "Revenue Growth Consultation"
+      "title": "Hospitality Discipline Meets Digital Strategy Speed.",
+      "subtitle": "Founder's Vision",
+      "cta": "Work With Me"
     },
     "about": {
-      "heading": "Authoritative Strategy meets Welcoming Hospitality",
-      "text": "As a digital hotelier and marketing strategist, I specialize in transforming hotel operations and maximizing digital revenue. From building strong digital infrastructures to managing targeted traffic, OTA channels, and guest reputation, we ensure your property dominates the market."
+      "heading": "Founder's Vision",
+      "text": "I operate at the intersection of a multi-profile hospitality background and digital innovation. As a veteran General Manager, I don't just 'handle' OTAs—I master their ecosystems while aggressively driving technology adoption across independent properties. Hotelco was built on the pillars of SEO, SMO, and advanced digital branding. We empower owners to reclaim their narrative from third-party platforms and build sustainable direct revenue streams."
     }
   }
 };
