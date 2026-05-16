@@ -33,7 +33,13 @@ import {
   Instagram,
   Facebook,
   Linkedin,
-  Youtube
+  Youtube,
+  Search,
+  Image as ImageIcon,
+  Tag,
+  Layout,
+  MessageCircle,
+  ExternalLink
 } from "lucide-react";
 import { FloatingBookingWidget } from "./components/FloatingBookingWidget";
 import { seoData } from "./data/seoData";
@@ -436,6 +442,36 @@ export default function App() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </section>
+
+        {/* The Growth Blueprint: Strategic Execution */}
+        <section className="py-10 pb-20">
+          <div className="bg-slate-900 p-10 rounded-3xl shadow-xl shadow-slate-900/20 text-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+            <h2 className="text-xs font-bold tracking-widest text-sky-400 uppercase mb-10 relative z-10">The Growth Blueprint: Strategic Execution</h2>
+            
+            <div className="grid md:grid-cols-2 gap-6 relative z-10">
+              {[
+                { icon: Search, title: "Local Business Mastery", desc: "Deep configuration of GMB (Google My Business) for local dominant search presence." },
+                { icon: ImageIcon, title: "Visual Asset Optimization", desc: "Proper image compression, ALT configuration, and high-fidelity visual staging." },
+                { icon: Tag, title: "Metadata & Tag Strategy", desc: "Micro-tagging every digital asset to ensure search engines understand your value proposition." },
+                { icon: Layout, title: "Dynamic Content Feed", desc: "Consistent posting and narrative updates to keep your property relevant in the algorithms." },
+                { icon: MessageCircle, title: "Ecosystem Integration", desc: "Seamlessly connecting Website to WhatsApp for instant 1:1 guest conversion." },
+                { icon: ExternalLink, title: "Social Media Schema", desc: "Advanced Schema.org integration to link your social authority directly to your domain." }
+              ].map((item, i) => (
+                <motion.div key={i} whileHover={{ y: -5 }} className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50 shadow-lg flex gap-5 items-start">
+                  <div className="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-sky-400 flex-shrink-0 shadow-inner shadow-black/20">
+                    <item.icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
+                    <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
       </main>
